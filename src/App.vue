@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-</template>
+    <search-city/>
+    <current-weather/>
+</template> 
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import SearchCity from '@/components/SearchCity.vue';
+import CurrentWeather from "@/components/СurrentWeather.vue";
 
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
+    name: "App",
+    components: {
+        SearchCity,
+        CurrentWeather,
+    },
+    computed: {
+        ...mapGetters(["isSearched"])
+    },
+    methods: {
+        ...mapActions(["fetchWeatherData"]),
+        initData() {
+            this.fetchWeatherData(this.$store.state.defaultSearch);
+        }
+    },
+    created() {
+        this.initData();
+    }
 };
 </script>
-
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./assets/css/style.scss";
 </style>

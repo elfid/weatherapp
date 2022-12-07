@@ -1,0 +1,41 @@
+$default-font-name: 'Avenir';
+
+$another-fonts: Arial, Helvetica, sans-serif;
+$main-font: $default-font-name, $another-fonts;
+
+$path-fonts: '../fonts/';
+
+$default-width: 1200px;
+
+$gap: 15px;
+
+$color-orange: #FF9900;
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-lightblack: #2C4058;
+$color-gray: #999999;
+$color-darkgray: #333333;
+$color-lightgary: #F4F4F4;
+$color-darkblue: #5373FD;
+$color-red: #FF6363;
+$color-blue: #55B7FF;
+$color-purple: #7E5AFF;
+$color-gray-opacity: #4B5562;
+
+$gradient-blue-purple: linear-gradient(243.43deg, #7E5AFF 16.9%, #55B7FF 83.27%);
+$gradient-header: linear-gradient(243deg, rgba(126, 90, 255, 0.9) 16.9%, rgba(85, 183, 255, 0.9) 83.27%);
+$gradient-dblue-blue: linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
+
+$slider-dots-color: $color-white;
+$slider-bg-gradient: $gradient-blue-purple;
+$section2-bg-gradient: $gradient-dblue-blue;
+
+$breack-points: (
+    "lg": 1200px,
+    "md": 1024px,
+    "sm": 768px,
+    "xs": 576px,
+    "xxs": 480px
+);
+
+$baseUrl: '../images/';

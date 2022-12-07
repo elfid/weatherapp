@@ -1,0 +1,184 @@
+@mixin font-style-for-text($_font-fam, $_font-st: normal) {
+    font-family: $_font-fam, $another-fonts;
+    font-style: $_font-st;
+
+    @content;
+}
+
+@mixin font-for-text($_font-w, $_font-s, $_font_h) {
+    font-weight: $_font-w;
+    font-size: $_font-s;
+    line-height: $_font_h;
+
+    @content;
+}
+
+@mixin clear {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin font-face($_font-file, $_font-name: $default-font-name, $_font-weight: 400, $_font-style: normal) {
+    @font-face {
+        font-family: $_font-name;
+        font-style: $_font-style;
+        font-weight: $_font-weight;
+        src: local(''),
+        url('#{$path-fonts}#{$_font-file}.woff2') format('woff2'),
+        url('#{$path-fonts}#{$_font-file}.woff') format('woff');
+    }
+}
+
+
+@mixin container {
+    .container {
+        max-width: $default-width;
+        margin: 0 auto;
+        padding: 0 $gap;
+    }
+}
+
+@mixin grid($count: 12) {
+    @include container;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 (-$gap);
+    }
+
+    [class*="col-"] {
+        padding: $gap;
+        box-sizing: border-box;
+    }
+
+    @for $i from 1 through $count {
+        $width: math.div(100%, $count) * $i;
+
+        .col-#{$i} {
+            max-width: $width;
+            width: 100%;
+            flex-basis: $width;
+        }
+    }
+
+    @each $breackpoint,
+    $breackpoint-value in $breack-points {
+        @media screen and (max-width: $breackpoint-value) {
+            @for $i from 1 through $count {
+                $width: math.div(100%, $count) * $i;
+
+                .col-#{$breackpoint}-#{$i} {
+                    max-width: $width;
+                    width: 100%;
+                    flex-basis: $width;
+                }
+            }
+        }
+    }
+}
+
+@mixin media($point: sm) {
+    @media screen and (max-width: map-get($breack-points, $point)) {
+        @content;
+    }
+}
+
+@mixin media-mob($point: sm) {
+    @media screen and (min-width: (map-get($breack-points, $point) + 1px)) {
+        @content;
+    }
+}
+
+@mixin visuality-hiden {
+    border: none !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    margin: -1px !important;
+}
+
+@mixin dev-col($col: $defaulp-count-col) {
+    $width: math.div(100%, $defaulp-count-col) * $col;
+
+    max-width: $width;
+    width: 100%;
+    flex-basis: $width;
+    padding: $gap;
+    box-sizing: border-box;
+}
+
+@mixin col($col: $defaulp-count-col, $breackpoint: '') {
+    @if $breackpoint !='' {
+        @include media($breackpoint) {
+            @include dev-col($col);
+        }
+    }
+
+    @else {
+        @include dev-col($col);
+    }
+}
+
+@mixin ellipsis($line: 1) {
+    @if $line==1 {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    @else {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box !important;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+}
+
+@mixin placeholder() {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+}
+
+@mixin arrow() {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid $color-white;
+    border-radius: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-color: transparent;
+    overflow: hidden;
+
+    &::after {
+        content: url("../images/down-arrow.svg");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 14px;
+        width: 12px;
+    }
+}

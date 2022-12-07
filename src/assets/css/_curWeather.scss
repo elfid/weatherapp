@@ -1,0 +1,150 @@
+.currentWeather {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba($color: $color-lightblack, $alpha: 0.7);
+        margin: $gap auto;
+        width: 100%;
+        border-radius: 30px;
+        color: $color-white;
+    }
+
+    &__now {
+        flex-grow: 2;
+        margin: 15px;
+    }
+
+    &__temperature {
+        @include font-style-for-text('Montserrat', italic);
+        @include font-for-text(700, 72px, 72px);
+        background-color: $color-white;
+        border-radius: 50px;
+        color: $color-lightblack;
+        position: relative;
+        padding: 20px;
+        margin: 50px auto;
+
+        & span {
+            @include font-for-text(700, 20px, 20px);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background-color: $color-white;
+            border-radius: 50%;
+            box-shadow: 5px 5px 10px 5px rgba($color: $color-darkgray, $alpha: 0.8);
+            width: 62px;
+            height: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:nth-of-type(1) {
+                @include font-for-text(700, 35px, 35px);
+            }
+        }
+    }
+
+    &__weather {
+        @include font-style-for-text('Montserrat', italic);
+        @include font-for-text(700, 30px, 30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
+
+        & img {
+            background-color: rgba($color: $color-blue, $alpha: 1);
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 5px rgba($color: $color-blue, $alpha: 0.8);
+            margin: 10px;
+        }
+    }
+
+    &__hourly {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba($color: $color-lightblack, $alpha: 0.7);
+        margin: $gap;
+        max-width: calc(50% - 2 * $gap);
+        border-radius: 30px;
+
+    }
+}
+
+.location {
+
+    &__city {
+        @include font-style-for-text('Montserrat', italic);
+        @include font-for-text(700, 30px, 42px);
+        display: flex;
+        align-items: center;
+    }
+
+    &__data {
+        @include font-style-for-text($main-font, italic);
+        @include font-for-text(700, 18px, 18px);
+        margin-bottom: $gap;
+    }
+
+
+}
+
+.hourly {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgba($color: $color-white, $alpha: 0.6);
+        border-radius: 30px;
+    }
+}
+
+.temperature {
+
+    &__C {
+        top: 0;
+        left: 100%;
+        @include font-for-text(700, 35px, 35px);
+    }
+
+    &__img {
+        top: 0;
+        left: 0;
+    }
+
+    &__min {
+        top: 100%;
+        left: 0;
+    }
+
+    &__max {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+.weather__info {
+    display: flex;
+    margin: $gap;
+    padding-top: $gap;
+    border-top: $color-white solid 1px;
+    width: 80%;
+    justify-content: space-around;
+
+    & span {
+        display: flex;
+        align-items: center;
+        @include font-for-text(400, 18px, 18px);
+    }
+
+}

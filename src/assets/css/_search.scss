@@ -1,0 +1,91 @@
+.search {
+    padding: $gap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn {
+    @include font-style-for-text('Montserrat');
+    @include font-for-text(400, 14px, 17px);
+    text-align: center;
+    color: $color-white;
+    background: $color-blue;
+    padding: 0;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    text-transform: uppercase;
+    width: 100px;
+    height: 30px;
+}
+
+.iput {
+    height: 30px;
+    width: calc(50% - 30px);
+    padding: 0;
+    padding: 0 10px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    @include font-style-for-text($main-font);
+    @include font-for-text(400, 18px, 27px);
+    outline: none;
+    text-transform: uppercase;
+
+    @include placeholder {
+        @include font-style-for-text('Montserrat');
+        color: $color-gray-opacity;
+        opacity: 0.5;
+
+    }
+}
+
+
+.clickable {
+    cursor: pointer;
+}
+
+.result {
+    position: absolute;
+    top: calc(100% - $gap + 5px);
+    z-index: 1000;
+    width: calc(50% + 100px - $gap * 2 + 5px);
+    overflow: hidden;
+    border-radius: 10px;
+
+    &__item {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba($color: $color-white, $alpha: 1.0);
+
+
+        &:hover {
+            background-color: rgba($color: $color-gray, $alpha: 1.0);
+        }
+
+        & span {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        & img {
+            margin-left: 2px;
+        }
+    }
+
+    &__latLon {
+        width: 50%;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        & span {
+            padding: 0 5px;
+        }
+    }
+}

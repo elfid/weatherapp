@@ -1,0 +1,21 @@
+@use 'sass:math';
+@import './vars';
+@import './global/global';
+@import './search';
+@import './curWeather';
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    background: url(@/assets/bg.jpg) center;
+    background-size: cover;
+    height: 100%;
+}
+
+html,
+body {
+    height: 100%;
+}
