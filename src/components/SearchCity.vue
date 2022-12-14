@@ -26,8 +26,9 @@ export default {
         ...mapGetters(["isSearched", "getWeatherCountry", "getError"])
     },
     methods: {
-        ...mapActions(["fetchWeatherData"]),
+        ...mapActions(["fetchWeatherData", "fetchCity"]),
         getData() {
+            this.fetchCity(this.search);
             this.fetchWeatherData(this.search);
         },
         flagIco (link) {

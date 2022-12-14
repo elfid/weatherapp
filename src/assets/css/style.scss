@@ -13,9 +13,22 @@
     background: url(@/assets/bg.jpg) center;
     background-size: cover;
     height: 100%;
+    position: relative;
 }
 
 html,
 body {
     height: 100%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 5px $gap;
+    background-color: rgba($color: $color-lightblack, $alpha: 0.7);
+
+    & a {
+        color: $color-white;
+    }
 }

@@ -26,9 +26,9 @@
                         </div>
                     </div>
                     <div class="weather__info">
-                        <span><vue-feather type="wind" size="18px"></vue-feather> {{getWeatherInfo.wind}} m/s</span>
-                        <span><vue-feather type="droplet" size="18px"></vue-feather> {{getWeatherInfo.clouds}} %</span>
-                        <span><vue-feather type="cloud" size="18px"></vue-feather> {{getWeatherInfo.humidity}} %</span>
+                        <span><vue-feather type="wind" size="18px"></vue-feather> <span class="info">{{getWeatherInfo.wind}} m/s</span></span>
+                        <span><vue-feather type="droplet" size="18px"></vue-feather> <span class="info">{{getWeatherInfo.clouds}} %</span></span>
+                        <span><vue-feather type="cloud" size="18px"></vue-feather> <span class="info">{{getWeatherInfo.humidity}} %</span></span>
                     </div>
                 </div>
             <!-- <div class="col-6 currentWeather__hourly">

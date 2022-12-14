@@ -7,7 +7,12 @@
         justify-content: center;
         background: rgba($color: $color-lightblack, $alpha: 0.7);
         margin: $gap auto;
-        width: 100%;
+        width: 80%;
+
+        @include media() {
+            width: 100%;
+        }
+
         border-radius: 30px;
         color: $color-white;
     }
@@ -120,6 +125,11 @@
     &__img {
         top: 0;
         left: 0;
+
+        & img {
+            -webkit-filter: drop-shadow(0px 0px 8px $color-darkgray);
+            filter: drop-shadow(0px 0px 8px $color-darkgray);
+        }
     }
 
     &__min {
@@ -147,4 +157,8 @@
         @include font-for-text(400, 18px, 18px);
     }
 
+}
+
+.info {
+    padding-left: 5px;
 }

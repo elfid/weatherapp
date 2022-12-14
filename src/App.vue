@@ -1,6 +1,9 @@
 <template>
     <search-city/>
     <current-weather/>
+    <footer class="footer">
+        <a target="_blank" href="https://www.freepik.com">designed by Wirestock - Freepik.com</a>
+    </footer>
 </template> 
 
 <script>
