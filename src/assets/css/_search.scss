@@ -96,6 +96,7 @@
     width: calc(50% - 30px + 100px);
     border-radius: 10px;
     background-color: $color-white;
+    z-index: 1000;
 
     &__list {
         margin: 10px 0;

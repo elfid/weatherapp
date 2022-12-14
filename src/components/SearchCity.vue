@@ -44,14 +44,12 @@ export default {
         setSearchCity (e) {
             const liElem = e.target.closest("li").innerHTML;
             this.getSearchData.forEach((item) => {
-                console.log(item,liElem)
                 if (item === liElem) {
                     this.search = item;
                     this.setSearchData([]);
                     this.getData();
                 }
             })
-            console.log(this.getSearchData)
         },
         autocomplite () {
             this.$emit('input', this.search);

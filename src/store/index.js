@@ -70,13 +70,12 @@ export default createStore({
                 let response = await fetch(
                     `${state.apiBase}weather?q=${search}&appid=${state.apiKey}&units=metric`
                 ).then(response => {
-                    console.log(response)
                     return response.json()
                 });
                 commit("setError", true);
                 let newWeatherData;
                 if (response.cod !== +'200') {
-                    console.log('ne 200')
+                    console.log(`ERROR: ${response.cod} on fetchWeatherData`)
                     newWeatherData = this.lastData;
                     commit("setError", true);
                 } else {
@@ -107,7 +106,6 @@ export default createStore({
                 let response = await fetch(
                     `${state.apiCityBase}name_startsWith=${search}&maxRows=3&country=UA&username=elfid`
                 ).then(response => {
-                    console.log(response, 'apiCityBase1111')
                     return response.json()
                 });
                 let newSearchData = [];
@@ -116,7 +114,6 @@ export default createStore({
                     newSearchData.push(itemData);
                 });
                 commit("setSearchData", newSearchData)
-                console.log(newSearchData, 'apiCityBase2222', state.searchData)
             } catch (error) {
                 console.log(error, "ERROR");
             }
