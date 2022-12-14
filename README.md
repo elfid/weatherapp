@@ -1,5 +1,5 @@
 # weatherapp
-https://elfid.github.io/weatherapp/public
+https://elfid.github.io/weatherapp/
 
 
 ## Project setup

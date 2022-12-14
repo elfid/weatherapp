@@ -9,7 +9,7 @@ export default createStore({
         weatherData: {},
         isError: false,
         lastData: {},
-        apiCityBase: "http://api.geonames.org/searchJSON?",
+        apiCityBase: "https://secure.geonames.org/searchJSON?",
         searchData: [],
     },
     getters: {
