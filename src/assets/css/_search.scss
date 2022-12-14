@@ -89,3 +89,23 @@
         }
     }
 }
+
+.acomplit {
+    position: absolute;
+    top: calc(100% - 10px);
+    width: calc(50% - 30px + 100px);
+    border-radius: 10px;
+    background-color: $color-white;
+
+    &__list {
+        margin: 10px 0;
+    }
+
+    &__item {
+        padding: 10px 0;
+
+        &:hover {
+            background-color: $color-gray;
+        }
+    }
+}

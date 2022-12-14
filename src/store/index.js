@@ -10,7 +10,7 @@ export default createStore({
         isError: false,
         lastData: {},
         apiCityBase: "http://api.geonames.org/searchJSON?",
-        searchData: {},
+        searchData: [],
     },
     getters: {
         getWeatherMain(state) {
