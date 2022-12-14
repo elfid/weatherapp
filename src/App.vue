@@ -1,16 +1,18 @@
 <template>
-    <search-city/>
-    <current-weather/>
-    <footer class="footer">
-        <a target="_blank" href="https://www.freepik.com">designed by Wirestock - Freepik.com</a>
-    </footer>
+    <div @click="setSearchData([])">
+        <search-city/>
+        <current-weather/>
+        <footer class="footer">
+            <a target="_blank" href="https://www.freepik.com">designed by Wirestock - Freepik.com</a>
+        </footer>
+    </div>
 </template> 
 
 <script>
 import SearchCity from '@/components/SearchCity.vue';
 import CurrentWeather from "@/components/СurrentWeather.vue";
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations} from "vuex";
 export default {
     name: "App",
     components: {
@@ -22,6 +24,7 @@ export default {
     },
     methods: {
         ...mapActions(["fetchWeatherData"]),
+        ...mapMutations(["setSearchData"]),
         initData() {
             this.fetchWeatherData(this.$store.state.defaultSearch);
         }
