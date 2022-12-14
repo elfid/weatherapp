@@ -17,7 +17,7 @@
                     <div class="currentWeather__now" style="background-image:none">
                         <div class="currentWeather__temperature">{{getWeatherMain.temp}} 
                             <span class="temperature__C">&#176;C</span> 
-                            <span class="temperature__img"><img :src=weatherImg(getWeatherMain.icon) alt="weather-icon" /></span>
+                            <span class="temperature__img"><img :src="[getWeatherMain.icon ? weatherImg(getWeatherMain.icon) : '']"  alt="weather-icon" /></span>
                             <span class="temperature__min">Min:<br>{{getWeatherMain.tempMin}}</span>
                             <span class="temperature__max">Max:<br>{{getWeatherMain.tempMax}}</span>
                         </div>
@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         weatherImg (weather) {
-            const linkFull = ` http://openweathermap.org/img/wn/${weather}.png`; 
+            const linkFull = ` https://openweathermap.org/img/wn/${weather}.png`; 
             return linkFull
         }
     }

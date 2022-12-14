@@ -37,6 +37,7 @@ export default createStore({
             return state.weatherData.name;
         },
         getWeatherCountry(state) {
+            state.weatherData.country = 'UA'
             return state.weatherData.country;
         },
         isSearched(state) {
